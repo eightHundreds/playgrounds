@@ -3,6 +3,7 @@
     [
       "@babel/preset-env",
       {
+        // debug 
         "modules": false,
         "useBuiltIns": "usage",
         "corejs": {
@@ -17,9 +18,29 @@
     "@babel/preset-react",
     "@babel/preset-typescript"
   ],
+  "env": {
+    "development":{
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "modules": false,
+            "useBuiltIns": "usage",
+            "corejs": {
+              "version": 3,
+              "proposals": true
+            },
+            "targets":{
+              "node":"current"
+            }
+          }
+        ]
+      ]
+    }
+  },
   "plugins": [
-    // "@babel/plugin-syntax-dynamic-import",
-    // "@babel/plugin-transform-async-to-generator",
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-transform-async-to-generator"
     // // decorators 插件必须配置在 properties 插件之前
     // // 支持解析装饰器草案语法，legacy表示保留装饰器语法，需要 @babel/plugin-proposal-class-properties 的 loose 配置为true
     // ["@babel/plugin-proposal-decorators", { "legacy": true }],
