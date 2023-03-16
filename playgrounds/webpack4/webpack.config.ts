@@ -1,14 +1,11 @@
 import { Configuration } from "webpack";
 import path from "path";
 
-const resolve = (...paths: string[]) => path.resolve(__dirname, "..", ...paths);
 
 const config: Configuration = {
+  mode: "development",
   entry: {
-    main: resolve("./src/index.js"),
-  },
-  cache: {
-    type: "filesystem",
+    main: "./src/index.js"
   },
   module: {
     rules: [
@@ -27,10 +24,8 @@ const config: Configuration = {
     ],
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
+    extensions: [".ts", ".tsx", ".js", ".jsx", ".json"],
   },
-  plugins: [
-    
-  ],
+  plugins: [],
 };
 export default config;
